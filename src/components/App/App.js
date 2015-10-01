@@ -17,6 +17,10 @@ class App extends Component {
     error: PropTypes.object,
   };
 
+  handeler(){
+    AppStore.addItem('item1');
+  }
+
   render() {
     return !this.props.error ? (
       <div>
