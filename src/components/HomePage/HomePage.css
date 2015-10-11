@@ -1,3 +1,15 @@
-.HomePage-h1{
-  color: red;
+@import '../shared.css';
+
+$orange: #FF8000;
+
+.continue-game{
+  text-align: center;
+  background-color: #9A4444;
+  z-index: 10;
+  position: relative;
+  padding: 10px;
+  h4{
+    color: $orange;
+    margin: 0px;
+  }
 }

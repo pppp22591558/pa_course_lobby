@@ -10,6 +10,7 @@
 import path from 'path';
 import webpack, { DefinePlugin, BannerPlugin } from 'webpack';
 import merge from 'lodash.merge';
+import precss from 'precss';
 
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
@@ -95,6 +96,7 @@ const config = {
       }),
       require('postcss-nested')(),
       require('postcss-cssnext')({autoprefixer: AUTOPREFIXER_BROWSERS}),
+      require('precss')(),
     ];
   },
 };
@@ -130,6 +132,9 @@ const appConfig = merge({}, config, {
       ...config.module.loaders, {
         test: /\.css$/,
         loader: 'style-loader/useable!css-loader!postcss-loader',
+      }, {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       },
     ],
   },

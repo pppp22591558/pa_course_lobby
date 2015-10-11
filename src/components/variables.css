@@ -40,4 +40,11 @@
 
   --animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;
 
+  /* pagamo */
+
+  --red: #F7665B;
+  --orange: #E78840;
+  --yellow: #FFBC4D;
+  --light-gray: #F7F7F7;
+
 }
