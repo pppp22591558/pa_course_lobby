@@ -1,6 +1,5 @@
+@import '../variables.css';
 @import '../shared.css';
-
-$orange: #FF8000;
 
 .continue-game{
   text-align: center;
@@ -9,7 +8,188 @@ $orange: #FF8000;
   position: relative;
   padding: 10px;
   h4{
-    color: $orange;
+    color: var(--orange);
     margin: 0px;
+  }
+}
+
+.homepage-wrapper{
+  z-index: 0;
+  position: relative;
+  @mixin floatFix;
+}
+
+.main-banner{
+  height: 300px;
+  @mixin floatFix;
+  @mixin shadow;
+  background: image_url('banner.png');
+  &:before{
+    content:'';
+    width: 200px;
+    position: absolute;
+    left: 0;
+    background: gray;
+    height: 300px;
+    /* Rectangle 1 Copy 4: */
+    background: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0.3;
+  }
+  &:after{
+    content:'';
+    width: 200px;
+    top: 40px;
+    position: absolute;
+    right: 0;
+    background: gray;
+    height: 300px;
+    background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -moz-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0.3;
+    padding-left: 0;
+  }
+  .main-panel{
+    @mixin max-width;
+    @mixin floatFix;
+  }
+  img.main-banner-background{
+    position: absolute;
+    z-index: -1;
+    left: 0;
+  }
+  ul.feature-panel{
+    z-index: 5;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    float: right;
+    cursor: pointer;
+    @mixin shadow;
+    background-image: linear-gradient(to top, #E78840 0%, #F7665B 100%);
+    background-image: -webkit-linear-gradient(top, #E78840 0%, #F7665B 100%);
+    background-image: -moz-linear-gradient(top, #E78840 0%, #F7665B 100%);
+    background-image: -ms-linear-gradient(top, #E78840 0%, #F7665B 100%);
+    &:before{
+      content: '';
+      background-color: white;
+      width: 80%;
+      margin: 0 auto;
+      height: 1px;
+      position: absolute;
+      left: 26px;
+      top: 150px;
+      opacity: 0.1;
+    }
+    &:after{
+      content: '';
+      background-color: white;
+      height: 80%;
+      width: 1px;
+      position: absolute;
+      right: 150px;
+      opacity: 0.1;
+      top: 26px;
+    }
+    li{
+      text-align: center;
+      display: inline;
+      float: left;
+      width: 150px;
+      height: 150px;
+      padding-top: 30px;
+      @mixin transition;
+      &:hover, &:focus{
+        background-color: rgba(255, 188, 77, 0.19);
+      }
+      img{
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+      }
+      h4{
+        color: white;
+      }
+    }
+  }
+}
+
+.product-content-wrapper{
+  width: 100%;
+  background: white;
+  z-index: 10;
+  position: relative;
+  @mixin floatFix;
+  -webkit-box-shadow: 0px -3px 10px -3px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px -3px 10px -3px rgba(0,0,0,0.4);
+  box-shadow: 0px -3px 10px -3px rgba(0, 0, 0, 0.2);
+}
+
+.product-content{
+  background-color: white;
+  @mixin floatFix;
+  @mixin max-width;
+  .products-by-category{
+    @mixin floatFix;
+    border-left: 1px solid #E8E8E8;
+  }
+  .filter-wrapper {
+    @mixin floatFix;
+    display: inline-block;
+    float: left;
+
+    ul.product-filter{
+      padding: 30px 15px 0px 30px;
+      width: 230px;
+      /*position: absolute;*/
+      .filter-title{
+        margin-top: 15px;
+      }
+      .filter-search{
+        padding-bottom: 30px;
+        border-bottom: 1px solid gainsboro;
+        .search-bar{
+          width: 160px;
+        }
+      }
+    }
+  }
+
+  .products{
+    margin-left: 230px;
+    padding: 30px 15px; /* 0px 230px;*/
+    /*float: right;*/
+    /*width: 100%;*/
+    .product-row{
+      @mixin responsiveLargeWidth;
+      @mixin floatFix;
+      margin: 0 auto;
+      li.product-title{
+        /*margin-top: 30px;*/
+        margin-bottom: 45px; /*15px;*/
+        /*margin-left: 35px;*/
+        h3{
+          color: #D0D0D0;
+        }
+      }
+      li.product-cell{
+        display: inline-block;
+        float: left;
+        margin-top: 15px;
+        @mixin responsiveSmallWidth;
+        h5{
+          text-align: center;
+        }
+        img{
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
   }
 }

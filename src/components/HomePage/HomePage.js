@@ -1,18 +1,21 @@
 import React, {Component} from 'react';
 import styles from './HomePage.css';
 import withStyles from '../../decorators/withStyles';
+
 import SubHeader from './SubHeader';
+import SearchBar from '../SharedComponents/SearchBar'
+import CheckBox from '../SharedComponents/CheckBox'
+
 import AppStore from '../../stores/app-store';
 
 @withStyles(styles)
 
-//
 // class HomePage extends Component {
 //   handleClick(){
 //     AppStore.addItem('{id:1, name: "item1"}');
 //   }
 //   render(){
-//     return(
+//     return (
 //       <div>
 //         <h1 className="HomePage-h1" onClick={this.handleClick}>HomePage fewf</h1>
 //         <SubHeader/>
@@ -40,13 +43,26 @@ class HomePage extends Component {
       require('../../public/images/tutorial-1.png'),
       require('../../public/images/enter.png'),
       require('../../public/images/my_course.png')
+    ],
+    productByCategory: [
+      {id: "1", name: "category_01"}
+    ],
+    products: [
+      {
+        category_id: 1,
+        created_at: "2015-10-06T02:41:52.095Z",
+        description: "asdfaas jasdif aslo asdjfioasjfo",
+        id: 1,
+        name: "product_1_c_1"
+      }
     ]
   };
   render() {
-    return(
+    return (
       <div className="homepage-wrapper">
         <ContinueGame world={this.props.currentWorld} />
         <MainBanner bannerImg={this.props.bannerImg} panelImgs={this.props.panelImgs}/>
+        <ProductContent productByCategory={this.props.productByCategory} products={this.props.products}/>
       </div>
     )
   }
@@ -54,7 +70,7 @@ class HomePage extends Component {
 
 class ContinueGame extends Component {
   render() {
-    return(
+    return (
       <div className="continue-game">
         <h4>Continue game in {this.props.world}</h4>
       </div>
@@ -64,10 +80,10 @@ class ContinueGame extends Component {
 
 class MainBanner extends Component {
   render() {
-    return(
+    return (
       <div className="main-banner">
         <div className="main-panel">
-          <img src={this.props.bannerImg}></img>
+          <img className="main-banner-background" src={this.props.bannerImg}></img>
           <FeaturePanel panelImgs={this.props.panelImgs} />
         </div>
       </div>
@@ -77,7 +93,7 @@ class MainBanner extends Component {
 
 class FeaturePanel extends Component {
   render() {
-    return(
+    return (
       <ul className="feature-panel">
         <li><img src={this.props.panelImgs[0]} /><h4>Join a Course</h4></li>
         <li><a href="/tutorials"><img src={this.props.panelImgs[1]} /><h4>Tutorials</h4></a></li>
@@ -94,8 +110,8 @@ class ProductContent extends Component {
     return (
       <div className="product-content-wrapper">
         <div className="product-content">
-          <ProductFilter filterNames = {this.props.productByCategory}/>
-          <Products filterNames = {this.props.productByCategory} products = {this.props.products}/>
+          <ProductFilter filterNames={this.props.productByCategory}/>
+          <Products filterNames={this.props.productByCategory} products={this.props.products}/>
         </div>
       </div>
     )
@@ -111,15 +127,15 @@ class ProductFilter extends Component {
   }
   render() {
     var filterName = this.props.filterNames.map(function(filter, index){
-      return(
+      return (
         <li key = {index} className="filter-title">
           <CheckBox id= {"filter-" + index} defaultChecked={true}>
-            {filter.name}
-          </CheckBox>
+                      {filter.name}
+                    </CheckBox>
         </li>
       )
     });
-    return(
+    return (
       <div className="filter-wrapper">
         <ul className="product-filter">
           <li className="filter-title">
@@ -146,7 +162,7 @@ class Products extends Component {
       var products = allProducts.map(function(product, index){
         return (
           product.category_id === filter.id?
-          <li key= {product.id} className="product-cell">
+          <li key={product.id} className="product-cell">
             <ItemImg productName={product.name}/>
             <a href="#"><h5>{product.name}</h5></a>
           </li>

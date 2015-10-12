@@ -35,3 +35,115 @@ ul{
     }
   }
 }
+
+@define-mixin max-width {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@define-mixin responsiveFullWidth {
+  width: 1220px;
+  @media screen and (max-width:1280px) {
+    width: 900px;
+  }
+
+  @media screen and (max-width:968px) {
+    /*mobile layout*/
+  }
+}
+
+@define-mixin responsiveLargeWidth {
+  width: 1002px;
+
+  @media screen and (max-width:1280px) {
+    width: 700px;
+  }
+
+  @media screen and (max-width:968px) {
+    /*mobile layout*/
+  }
+}
+
+@define-mixin responsiveSmallWidth {
+  width: 200px;
+
+  @media screen and (max-width:1280px) {
+    width: 174px;
+  }
+
+  @media screen and (max-width:768px) {
+    /*mobile layout*/
+  }
+}
+
+@define-mixin floatFix {
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@define-mixin shadow {
+  -webkit-box-shadow: 0px 0px 10px -3px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 10px -3px rgba(0,0,0,1);
+  box-shadow: 0px 0px 10px -3px rgba(0,0,0,1);
+}
+
+@define-mixin transition {
+  -webkit-transition: all 400ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+     -moz-transition: all 400ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+       -o-transition: all 400ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+          transition: all 400ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+}
+
+@define-mixin hex($width:20px, $color:#64C7CC) {
+  position: relative;
+  width: $width;
+  height: ($width/1.7321);
+  background-color: $color;
+  margin: ($width/3.464) 0;
+
+  &:before, &:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: ($width/2) solid transparent;
+    border-right: ($width/2) solid transparent;
+  }
+
+  &:before{
+    bottom: 100%;
+    border-bottom: ($width/3.464) solid $color;
+  }
+
+  &:after{
+    top: 100%;
+    width: 0;
+    border-top: ($width/3.464) solid $color;
+  }
+}
+
+.large-hide{
+  display: block;
+}
+
+@media screen and (max-width:1280px) {
+  .large-hide{
+    display: none !important;
+  }
+}
+
+button:focus{
+  outline:none;
+}
+
+@define-mixin transform($type) {
+  transform: $type;
+  -webkit-transform: $type;
+  -moz-transform: $type;
+  -ms-transform: $type;
+  -o-transform: $type;
+}
