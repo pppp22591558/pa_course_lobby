@@ -1,3 +1,26 @@
+# Notes by Roger
+
+### 首頁 產品區 html結構
+* product-container
+  - product-sidebar
+    * product-search
+    * product-category
+    * product-rankings
+  - product content
+    * product-textbook-bundles
+    * product-featured-publishers
+    * product-popular-textbook
+
+### 首頁 產品 命名原則
+  * products
+    - textbooks
+    - textbook bundles
+  * product query (未實際使用)
+    - product Search
+    - product filter
+
+-----
+
 ## React Starter Kit — "isomorphic" web app boilerplate
 
 [![Support us on Bountysource](https://dl.dropboxusercontent.com/u/16006521/react-starter-kit/banner.png)](https://salt.bountysource.com/teams/react-starter-kit)<br>

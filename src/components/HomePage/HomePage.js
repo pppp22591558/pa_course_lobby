@@ -5,7 +5,7 @@ import styles from './HomePage.css';
 import withStyles from '../../decorators/withStyles';
 
 // private components
-import ProductContent from './ProductContent'
+import ProductContainer from './ProductContainer'
 
 @withStyles(styles)
 
@@ -43,25 +43,13 @@ class HomePage extends Component {
       require('../../public/images/enter.png'),
       require('../../public/images/my_course.png')
     ],
-    productByCategory: [
-      {id: "1", name: "category_01"}
-    ],
-    products: [
-      {
-        category_id: 1,
-        created_at: "2015-10-06T02:41:52.095Z",
-        description: "asdfaas jasdif aslo asdjfioasjfo",
-        id: 1,
-        name: "product_1_c_1"
-      }
-    ]
   };
   render() {
     return (
       <div className="homepage-wrapper">
         <ContinueGame world={this.props.currentWorld} />
         <MainBanner bannerImg={this.props.bannerImg} panelImgs={this.props.panelImgs}/>
-        <ProductContent productByCategory={this.props.productByCategory} products={this.props.products}/>
+        <ProductContainer productByCategory={this.props.productByCategory} products={this.props.products}/>
       </div>
     )
   }
@@ -82,7 +70,6 @@ class MainBanner extends Component {
     return (
       <div className="main-banner">
         <div className="main-panel">
-          <img className="main-banner-background" src={this.props.bannerImg}></img>
           <FeaturePanel panelImgs={this.props.panelImgs} />
         </div>
       </div>
