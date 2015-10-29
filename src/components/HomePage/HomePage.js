@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 import AppStore from '../../stores/app-store';
 
 import styles from './HomePage.css';

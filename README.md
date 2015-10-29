@@ -18,6 +18,12 @@
   * product query (未實際使用)
     - product Search
     - product filter
+----
+## 加新page的步驟 (假設page名稱是newPage)
+1. 在src/components下面加一個NewPage資料夾
+1. 在裡面加入package.json, NewPage.js, NewPage.css (複製貼上即可)
+1. 修改package.json (參考現有page)
+1. 在src/routes.js裡面加上路徑
 
 -----
 

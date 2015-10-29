@@ -1,0 +1,94 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+@import '../variables.css';
+@import '../shared.css';
+
+$header-left-width: 150px;
+$common-padding: 10px;
+
+.textbook-detail-container {
+  max-width: 800px;
+  /*min-width: 320px;*/
+  margin: 0 auto;
+  padding: 20px;
+
+  .textbook-detail-header {
+    @mixin floatFix;
+    .textbook-detail-header-left {
+      float: left;
+      width: $header-left-width;
+      padding: $common-padding;
+
+      .textbook-img {
+        width: 100%;
+      }
+    }
+    .textbook-detail-header-main {
+      margin-left: $header-left-width;
+      padding: $common-padding;
+      /*border-left: 1px solid #CCC;*/
+
+      .textbook-name {
+        margin: 0 0 0.25em 0;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      .textbook-publisher {
+        margin: 0 0 2em 0;
+        color: #A0A0A0;
+        font-size: 1em;
+        font-weight: normal;
+      }
+      .textbook-actions {
+        a:first-child {
+          border-left: 1px solid #888;
+        }
+        a {
+          padding: 0 0.5em;
+          border-right: 1px solid #888;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .textbook-detail-block-title {
+    font-family: sans-serif;
+  }
+}
+
+div.recommended-textbooks-wrapper {
+  > ul {
+    overflow: hidden;
+    height: 120px;
+
+    li.textbook-cell-wrapper{
+      display: inline-block;
+
+      div.textbook-cell {
+        /*display: inline-block;*/
+        width: 120px;
+        height: 120px;
+        margin: 10px;
+
+        img.textbook-cell-img {
+          /*temp*/
+          background: linear-gradient(#FFA040, #FF6000);
+          padding: 10px;
+
+          display: block;
+          margin: 0 auto;
+          width: 70px;
+          height: 70px;
+          border-radius: 10px;
+        }
+        .textbook-cell-name {
+          text-align: center;
+          font-size: 0.875em;
+          font-weight: normal;
+          margin: 0.75em 0 0 0;
+          @mixin crop-line;
+        }
+      }
+    }
+  }
+}

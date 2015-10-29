@@ -11,6 +11,7 @@ import RegisterPage from './components/RegisterPage';
 import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 import HomePage from './components/HomePage';
+import Textbook from './components/Textbook';
 
 const router = new Router(on => {
   on('*', async (state, next) => {
@@ -19,6 +20,7 @@ const router = new Router(on => {
   });
 
   on('/homepage', async () => <HomePage/>);
+  on('/textbook', async () => <Textbook/>);
 
   on('/contact', async () => <ContactPage />);
 

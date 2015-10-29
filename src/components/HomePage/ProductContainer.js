@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
 // public (common, shared) components
 import SearchBar from '../SharedComponents/SearchBar'
@@ -59,7 +59,7 @@ class ProductContainer extends Component {
           {
             name: "小六康軒數學",
             publisher: "康軒文教",
-            image: require('../../public/images/male_plus.png')
+            image: require('../../public/images/item1.png')
           }, {
             name: "University Calculus I: jeaosufisifhoehsa dsaf sd ",
             publisher: "Pearson",
